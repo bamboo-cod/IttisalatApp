@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IdeaHub - Connect & Discuss</title>
+    <style>
+        :root {
+            --primary: #2F80ED;
+            --background: #F5F7FB;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: var(--background);
+        }
+
+        /* Navigation */
+        .navbar {
+            background: white;
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary);
+        }
+
+        .nav-links a {
+            margin-left: 2rem;
+            text-decoration: none;
+            color: #333;
+        }
+
+        /* Main Content Grid */
+        .container {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Discussion Feed */
+        .discussion-feed {
+            background: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+        }
+
+        .post-card {
+            background: #fff;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        /* Sidebar */
+        .sidebar {
+            background: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+        }
+
+        /* New Post Form */
+        .post-form {
+            background: white;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-radius: 10px;
+        }
+
+        textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            resize: vertical;
+            margin: 1rem 0;
+        }
+
+        button {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">IdeaHub</div>
+        <div class="nav-links">
+            <a href="#">Home</a>
+            <a href="#">Trending</a>
+            <a href="#">New Post</a>
+            <a href="#">Login</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <main class="discussion-feed">
+            <div class="post-form">
+                <h2>Start a Discussion</h2>
+                <input type="text" placeholder="Discussion title">
+                <textarea placeholder="Share your idea..." rows="4"></textarea>
+                <div>
+                    <button>Post Idea</button>
+                    <button style="background: #eee; color: #333">Add Tags</button>
+                </div>
+            </div>
+
+            <div class="post-card">
+                <div class="post-header">
+                    <h3>Should AI development be open-source?</h3>
+                    <small>Posted by @techthinker • 2h ago</small>
+                </div>
+                <p>Exploring the ethical implications of proprietary AI systems vs open-source alternatives...</p>
+                <div class="post-actions">
+                    <button>💬 24 Comments</button>
+                    <button>👍 158</button>
+                    <button>🔖 Save</button>
+                </div>
+            </div>
+
+            <!-- More post cards would go here -->
+        </main>
+
+        <aside class="sidebar">
+            <h3>Trending Topics</h3>
+            <div class="topic-tag">#FutureOfWork</div>
+            <div class="topic-tag">#ClimateSolutions</div>
+            <div class="topic-tag">#EthicalAI</div>
+            
+            <h3 style="margin-top: 2rem">Active Discussions</h3>
+            <div class="active-discussion">
+                <small>@sciencelover: "Renewable energy storage breakthroughs"</small>
+                <progress value="75" max="100"></progress>
+            </div>
+        </aside>
+    </div>
+
+    <script>
+        // Basic interactivity
+        document.querySelectorAll('.post-card').forEach(card => {
+            card.addEventListener('click', () => {
+                window.location.href = '#discussion-detail';
+            });
+        });
+
+        // Form submission
+        document.querySelector('.post-form button').addEventListener('click', () => {
+            const title = document.querySelector('.post-form input').value;
+            const content = document.querySelector('.post-form textarea').value;
+            
+            if(title && content) {
+                // Here you would typically send data to backend
+                alert('Discussion posted successfully!');
+            }
+        });
+    </script>
+</body>
+</html>
